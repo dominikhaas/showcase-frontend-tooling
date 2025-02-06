@@ -1,23 +1,21 @@
 # showcase-frontend-tooling
 
-This template should help get you started developing with Vue 3 in Vite.
-
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vite.dev/config/).
+This is a sample project to showcase some frontend tools which I find quite helpful.
+This project was used in my Codineers talk in February 2025.
 
 ## Project Setup
 
 ```sh
 npm install
+```
+
+### Manually
+
+```shell
+# switch to folder of your choice
+git clone https://github.com/gothinkster/spring-boot-realworld-example-app.git # checkout sprint boot realworld example
+cd spring-boot-realworld-example-app 
+./gradlew bootrun
 ```
 
 ### Compile and Hot-Reload for Development
