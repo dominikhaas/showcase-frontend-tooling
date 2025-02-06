@@ -23,7 +23,7 @@ const newArticle = () => {
   </div>
 
   <ul class="articles-list">
-    <li v-for="article in props.articles">
+    <li v-for="article in props.articles" :key="article.slug">
       <article data-test="article">
         <header>
           <h3 data-test="headline">

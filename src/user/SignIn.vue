@@ -10,8 +10,8 @@ const emits = defineEmits<{
   (e: 'signIn', email: string, password: string): void;
 }>();
 
-let email = ref("");
-let password = ref("");
+const email = ref("");
+const password = ref("");
 
 const cancel = () => {
   emits('cancel');

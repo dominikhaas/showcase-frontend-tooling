@@ -1,6 +1,7 @@
 <script lang="ts" setup>
-import {ArticleData} from "../client/ArticleClient";
+import type {ArticleData} from "../client/ArticleClient";
 import {useI18n} from "vue-i18n";
+import { ref } from 'vue'
 
 const props = defineProps<{
   articleData: ArticleData,
@@ -14,6 +15,8 @@ const emits = defineEmits<{
 }>();
 
 const {t} = useI18n();
+
+const article = ref<ArticleData>(JSON.parse(JSON.stringify(props.articleData)));
 
 const cancel = () => {
   emits('cancel');
@@ -33,21 +36,21 @@ const save = () => {
 
       <div class="input-section">
         <label for="article-title-input">{{ t('title') }}</label>
-        <input id="article-title-input" v-model="props.articleData.title" :disabled="props.isReadOnly" name="title"
+        <input id="article-title-input" v-model="article.title" :disabled="props.isReadOnly" name="title"
                type="text"
                v-bind:placeholder="t('title')">
       </div>
 
       <div class="input-section">
         <label for="article-description-input">{{ t('description') }}</label>
-        <textarea id="article-description-input" v-model="props.articleData.description"
+        <textarea id="article-description-input" v-model="article.description"
                   :disabled="props.isReadOnly"
                   name="article-description-input" rows="4"></textarea>
       </div>
 
       <div class="input-section">
         <label for="article-body-input">{{ t('body') }}</label>
-        <textarea id="article-body-input" v-model="props.articleData.body" :disabled="props.isReadOnly"
+        <textarea id="article-body-input" v-model="article.body" :disabled="props.isReadOnly"
                   name="article-body-input"
                   rows="25"></textarea>
       </div>

@@ -21,7 +21,7 @@ const loadArticles = async () => {
   try {
     articles.value = (await ArticleClient.getArticles().promise).articles;
   } catch (e) {
-    console.error("Couldn't load articles");
+    console.error("Couldn't load articles", e)
   }
 }
 

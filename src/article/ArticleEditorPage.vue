@@ -2,7 +2,7 @@
 
 import ArticleEditorContainer from "./ArticleEditorContainer.vue";
 import {useRoute, useRouter} from "vue-router";
-import {ArticleData} from "../client/ArticleClient";
+import {type ArticleData} from "../client/ArticleClient";
 
 const props = defineProps<{
   id?: string
@@ -10,7 +10,6 @@ const props = defineProps<{
 
 
 const router = useRouter();
-const route = useRoute()
 
 const onSaved = (updatedArticle: ArticleData) => {
   router.push("/article/" + updatedArticle.slug);
@@ -21,7 +20,7 @@ const onSaved = (updatedArticle: ArticleData) => {
 <template>
   <suspense>
     <template #default>
-      <ArticleEditorContainer :slug="id" @saved="onSaved"/>
+      <ArticleEditorContainer :slug="props.id" @saved="onSaved"/>
     </template>
     <template #fallback>
       <span>Loading...</span>

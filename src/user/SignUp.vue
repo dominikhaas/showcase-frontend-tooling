@@ -10,9 +10,9 @@ const emits = defineEmits<{
   (event: 'cancel'): void;
 }>();
 
-let userName = ref("");
-let email = ref("");
-let password = ref("");
+const userName = ref("");
+const email = ref("");
+const password = ref("");
 
 const cancel = () => {
   emits('cancel');

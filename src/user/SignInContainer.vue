@@ -22,7 +22,8 @@ const signIn = async (email: string, password: string) => {
     errorText.value = "";
     sessionStore.signIn(result.token, result.username);
     emits('showArticles');
-  } catch (error) {
+  } catch (e) {
+    console.log('Sign in failed ', e)
     errorText.value = "Invalid email address or password";
   }
 }

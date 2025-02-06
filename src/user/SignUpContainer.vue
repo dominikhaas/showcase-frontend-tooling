@@ -9,7 +9,7 @@ const emits = defineEmits<{
   (event: 'cancel'): void;
 }>();
 
-let errorText = ref("");
+const errorText = ref("");
 const sessionStore = useSessionStore();
 
 const signUp = async (userName: string, email: string, password: string) => {
@@ -24,6 +24,7 @@ const signUp = async (userName: string, email: string, password: string) => {
     sessionStore.signIn(result.token, result.username)
     emits('signedUp');
   } catch (e) {
+    console.error('Signup failed', e)
     errorText.value = "Failed to signup";
   }
 }

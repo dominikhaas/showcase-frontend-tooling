@@ -18,9 +18,6 @@ const showArticles = async () => {
   router.push("/articles")
 }
 
-const back = () => {
-  router.back();
-}
 
 
 </script>
@@ -28,7 +25,7 @@ const back = () => {
 <template>
   <suspense>
     <template #default>
-      <ArticleViewContainer :slug="id" @edit="editArticle" @showArticles="showArticles"/>
+      <ArticleViewContainer :slug="props.id" @edit="editArticle" @showArticles="showArticles"/>
     </template>
     <template #fallback>
       <span>Loading...</span>

@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 
 import {ref} from "vue";
-import ArticleClient, {ArticleData} from "../client/ArticleClient";
+import ArticleClient, {type ArticleData} from "../client/ArticleClient";
 import {useSessionStore} from "../user/sessionStore";
 import ArticleEditor from "./ArticleEditor.vue";
 
