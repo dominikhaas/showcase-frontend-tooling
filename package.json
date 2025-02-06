@@ -13,7 +13,7 @@
     "type-check": "vue-tsc --build",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
-    "do-demo": "open -a tech-demo-2k demo.md"
+    "do-demo": "open -a tech-demo-2k demo/demo.md"
   },
   "dependencies": {
     "axios": "^0.27.2",
