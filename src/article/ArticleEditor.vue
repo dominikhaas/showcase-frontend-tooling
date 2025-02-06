@@ -18,6 +18,7 @@ const emits = defineEmits<{
 const {t} = useI18n();
 
 const article = ref<ArticleData>(JSON.parse(JSON.stringify(props.articleData)));
+logArticle(article.value);
 
 const cancel = () => {
   emits('cancel');
