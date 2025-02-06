@@ -23,7 +23,7 @@ const cancel = () => {
 }
 
 const save = () => {
-  emits('save', props.articleData)
+  emits('save', article.value)
 }
 </script>
 
