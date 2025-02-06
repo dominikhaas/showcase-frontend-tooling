@@ -1,0 +1,11 @@
+{
+  "header": {
+    "text": "QArticles",
+    "signOut": "Sign out",
+    "signIn": "Sign In",
+    "signUp": "Sign up"
+  },
+  "message": {
+    "hello": "hello"
+  }
+}
