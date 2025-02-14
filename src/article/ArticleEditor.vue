@@ -2,7 +2,7 @@
 import type {ArticleData} from "../client/ArticleClient";
 import {useI18n} from "vue-i18n";
 import { ref } from 'vue'
-import { logArticle } from '@/client/SampleCycleMaker2k.ts'
+import { logArticle } from '../client/SampleCycleMaker2k.ts'
 
 const props = defineProps<{
   articleData: ArticleData,

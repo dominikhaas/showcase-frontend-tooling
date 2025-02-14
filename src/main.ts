@@ -4,7 +4,7 @@ import './index.css';
 import {createPinia} from "pinia";
 import router from "./router";
 
-import i18n from '@/i18n/i18n.ts'
+import i18n from '../i18n/i18n.ts'
 
 
 

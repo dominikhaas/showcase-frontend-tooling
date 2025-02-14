@@ -1,4 +1,4 @@
-import type { ArticleData } from '@/client/ArticleClient.ts'
+import type { ArticleData } from '../client/ArticleClient.ts'
 
 
 export const logArticle = (article: ArticleData) => {
