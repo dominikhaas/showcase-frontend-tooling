@@ -1,25 +1,25 @@
 <script lang="ts" setup>
-import {ref} from "vue";
+import { ref } from 'vue'
 
 const props = defineProps<{
   errorText: string
-}>();
+}>()
 
 const emits = defineEmits<{
-  (event: 'signUp', userName: string, email: string, password: string): void;
-  (event: 'cancel'): void;
-}>();
+  (event: 'signUp', userName: string, email: string, password: string): void
+  (event: 'cancel'): void
+}>()
 
-const userName = ref("");
-const email = ref("");
-const password = ref("");
+const userName = ref('')
+const email = ref('')
+const password = ref('')
 
 const cancel = () => {
-  emits('cancel');
+  emits('cancel')
 }
 
 const signUp = async () => {
-  emits('signUp', userName.value, email.value, password.value);
+  emits('signUp', userName.value, email.value, password.value)
 }
 </script>
 
@@ -28,18 +28,35 @@ const signUp = async () => {
   <form>
     <div class="input-section">
       <label for="user-name">Name</label>
-      <input id="user-name" v-model="userName" name="user" placeholder="Please enter your name" type="text">
+      <input
+        id="user-name"
+        v-model="userName"
+        name="user"
+        placeholder="Please enter your name"
+        type="text"
+      />
     </div>
 
     <div class="input-section">
       <label for="user-email">E-Mail</label>
-      <input id="user-email" v-model="email" name="email" placeholder="Please enter your e-mail address" type="email">
+      <input
+        id="user-email"
+        v-model="email"
+        name="email"
+        placeholder="Please enter your e-mail address"
+        type="email"
+      />
     </div>
 
     <div class="input-section">
       <label for="user-password">Password</label>
-      <input id="user-password" v-model="password" name="password" placeholder="Please enter your password"
-             type="password">
+      <input
+        id="user-password"
+        v-model="password"
+        name="password"
+        placeholder="Please enter your password"
+        type="password"
+      />
     </div>
 
     <p>{{ props.errorText }}</p>

@@ -1,16 +1,15 @@
 <script lang="ts" setup>
-import SignInContainer from "./SignInContainer.vue";
-import {useRouter} from "vue-router";
+import SignInContainer from './SignInContainer.vue'
+import { useRouter } from 'vue-router'
 
-
-const router = useRouter();
+const router = useRouter()
 
 const cancel = () => {
-  router.back();
+  router.back()
 }
 
 const showArticles = () => {
-  router.push("/articles")
+  router.push('/articles')
 }
 </script>
 

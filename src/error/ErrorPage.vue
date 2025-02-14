@@ -1,17 +1,15 @@
 <script lang="ts" setup>
-import {useErrorStore} from "./errorStore";
-import {useRouter} from "vue-router";
+import { useErrorStore } from './errorStore'
+import { useRouter } from 'vue-router'
 
-const errorStore = useErrorStore();
-const router = useRouter();
+const errorStore = useErrorStore()
+const router = useRouter()
 
 const back = () => {
-  errorStore.resetError();
-  router.back();
+  errorStore.resetError()
+  router.back()
 }
-
 </script>
-
 
 <template>
   <h2 class="main-heading">Error</h2>

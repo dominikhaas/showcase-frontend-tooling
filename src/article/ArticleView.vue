@@ -1,30 +1,28 @@
 <script lang="ts" setup>
-
-import {ArticleData} from "../client/ArticleClient";
+import { ArticleData } from '../client/ArticleClient'
 
 const props = defineProps<{
   loggedIn: boolean
   articleData: ArticleData
-}>();
+}>()
 
 const emits = defineEmits<{
-  (e: 'edit', slug: string): void;
-  (e: 'delete', slug: string): void;
-  (e: 'cancel'): void;
-}>();
+  (e: 'edit', slug: string): void
+  (e: 'delete', slug: string): void
+  (e: 'cancel'): void
+}>()
 
 const edit = () => {
-  emits('edit', props.articleData.slug as string);
+  emits('edit', props.articleData.slug as string)
 }
 
 const del = () => {
-  emits('delete', props.articleData.slug as string);
+  emits('delete', props.articleData.slug as string)
 }
 
 const cancel = () => {
-  emits('cancel');
+  emits('cancel')
 }
-
 </script>
 
 <template>
@@ -37,7 +35,9 @@ const cancel = () => {
   </div>
 
   <article class="single-article">
-    <aside>von {{ props.articleData?.author?.username }} ({{ props.articleData?.updatedAt }})</aside>
+    <aside>
+      von {{ props.articleData?.author?.username }} ({{ props.articleData?.updatedAt }})
+    </aside>
     <div class="description">
       <p>{{ props.articleData?.description }}</p>
     </div>
@@ -45,5 +45,4 @@ const cancel = () => {
       <p>{{ props.articleData?.body }}</p>
     </div>
   </article>
-
 </template>

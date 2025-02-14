@@ -1,18 +1,16 @@
-import {defineStore} from 'pinia'
-import {readonly, ref} from "vue";
-
+import { defineStore } from 'pinia'
+import { readonly, ref } from 'vue'
 
 export const useErrorStore = defineStore('error', () => {
+  const error = ref<Error>()
 
-    const error = ref<Error>();
+  const resetError = () => {
+    error.value = undefined
+  }
 
-    const resetError = () => {
-        error.value = undefined;
-    }
+  const setError = (newError: Error) => {
+    error.value = newError
+  }
 
-    const setError = (newError: Error) => {
-        error.value = newError;
-    }
-
-    return {error: readonly(error), resetError, setError};
-});
+  return { error: readonly(error), resetError, setError }
+})

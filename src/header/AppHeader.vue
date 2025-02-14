@@ -1,29 +1,27 @@
 <script lang="ts" setup>
+import { useSessionStore } from '../user/sessionStore'
+import { useRouter } from 'vue-router'
+import { useI18n } from 'vue-i18n'
 
-import {useSessionStore} from "../user/sessionStore";
-import {useRouter} from "vue-router";
-import {useI18n} from "vue-i18n";
-
-const sessionStore = useSessionStore();
-const router = useRouter();
+const sessionStore = useSessionStore()
+const router = useRouter()
 
 const navigateToStart = () => {
-  router.push('/articles');
+  router.push('/articles')
 }
 const signOut = () => {
-  sessionStore.signOut();
-  router.push('/articles');
+  sessionStore.signOut()
+  router.push('/articles')
 }
 
-const {t} = useI18n();
+const { t } = useI18n()
 
-console.log(t);
+console.log(t)
 </script>
 
 <template>
   <header class="app-header">
-    <h1 role="heading" @click="navigateToStart">{{ t('header.text') }}
-    </h1>
+    <h1 role="heading" @click="navigateToStart">{{ t('header.text') }}</h1>
     <div class="header-controls">
       <template v-if="sessionStore.loggedIn">
         <a data-test="signout" href="#" @click.prevent="signOut">{{ t('header.signOut') }}</a>

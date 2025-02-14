@@ -1,16 +1,16 @@
 <script lang="ts" setup>
-import {ref} from "vue";
-import UserClient from "../client/UserClient";
-import {useSessionStore} from "./sessionStore";
-import SignUp from "./SignUp.vue";
+import { ref } from 'vue'
+import UserClient from '../client/UserClient'
+import { useSessionStore } from './sessionStore'
+import SignUp from './SignUp.vue'
 
 const emits = defineEmits<{
-  (event: 'signedUp'): void;
-  (event: 'cancel'): void;
-}>();
+  (event: 'signedUp'): void
+  (event: 'cancel'): void
+}>()
 
-const errorText = ref("");
-const sessionStore = useSessionStore();
+const errorText = ref('')
+const sessionStore = useSessionStore()
 
 const signUp = async (userName: string, email: string, password: string) => {
   try {
@@ -18,19 +18,19 @@ const signUp = async (userName: string, email: string, password: string) => {
       user: {
         username: userName,
         email: email,
-        password: password
-      }
-    }).promise;
+        password: password,
+      },
+    }).promise
     sessionStore.signIn(result.token, result.username)
-    emits('signedUp');
+    emits('signedUp')
   } catch (e) {
     console.error('Signup failed', e)
-    errorText.value = "Failed to signup";
+    errorText.value = 'Failed to signup'
   }
 }
 
 const cancel = () => {
-  emits('cancel');
+  emits('cancel')
 }
 </script>
 <template>

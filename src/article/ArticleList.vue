@@ -1,17 +1,17 @@
 <script lang="ts" setup>
-import {ArticleData} from "../client/ArticleClient";
+import { ArticleData } from '../client/ArticleClient'
 
 const props = defineProps<{
-  loggedIn: boolean,
+  loggedIn: boolean
   articles: ArticleData[]
-}>();
+}>()
 
 const emits = defineEmits<{
-  (e: 'createArticle'): void;
-}>();
+  (e: 'createArticle'): void
+}>()
 
 const newArticle = () => {
-  emits('createArticle');
+  emits('createArticle')
 }
 </script>
 

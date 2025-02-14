@@ -1,11 +1,11 @@
 <script lang="ts" setup>
-
-import ArticleListContainer from "./ArticleListContainer.vue";</script>
+import ArticleListContainer from './ArticleListContainer.vue'
+</script>
 
 <template>
   <suspense>
     <template #default>
-      <ArticleListContainer/>
+      <ArticleListContainer />
     </template>
     <template #fallback>
       <span>Loading...</span>
