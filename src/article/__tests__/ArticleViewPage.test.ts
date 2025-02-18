@@ -77,7 +77,6 @@ describe('ArticleViewPage', () => {
 
     await waitFor(() => wrapper.text().includes('test3'))
 
-    // Überprüfen, ob das Element existiert
     const heading = wrapper.find('h2')
     expect(heading.exists()).toBe(true)
     expect(heading.text()).toBe('test3')
