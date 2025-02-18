@@ -1,5 +1,5 @@
-import type { ArticleData } from '../client/ArticleClient.ts'
+import type { MessageObject } from '../article/SampleCycleObject.ts'
 
-export const logArticle = (article: ArticleData) => {
-  console.log(article)
+export const logArticle = (message: MessageObject) => {
+  console.log(message.message)
 }

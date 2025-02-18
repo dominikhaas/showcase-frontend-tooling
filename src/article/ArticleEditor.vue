@@ -3,6 +3,9 @@ import type { ArticleData } from '../client/ArticleClient'
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
 import { logArticle } from '../client/SampleCycleMaker2k.ts'
+import { MessageObject } from './SampleCycleObject.ts'
+
+
 
 const props = defineProps<{
   articleData: ArticleData
@@ -18,7 +21,7 @@ const emits = defineEmits<{
 const { t } = useI18n()
 
 const article = ref<ArticleData>(JSON.parse(JSON.stringify(props.articleData)))
-logArticle(article.value)
+logArticle(new MessageObject("test"));
 
 const cancel = () => {
   emits('cancel')
