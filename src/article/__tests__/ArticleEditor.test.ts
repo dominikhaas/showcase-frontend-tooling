@@ -18,7 +18,7 @@ test('Saving sends the edited article', async () => {
   //check rendering is done correctly
   expect(screen.queryByText('Edit Article')).toBeTruthy()
 
-  //click the save b utton
+  //click the save button
   const button = screen.getByText('Save')
   await fireEvent.click(button)
 
