@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import ArticleEditorContainer from './ArticleEditorContainer.vue'
-import { useRouter } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { type ArticleData } from '../client/ArticleClient'
 
 const props = defineProps<{
@@ -8,6 +8,8 @@ const props = defineProps<{
 }>()
 
 const router = useRouter()
+
+const temp: string = "temp";
 
 const onSaved = (updatedArticle: ArticleData) => {
   router.push('/article/' + updatedArticle.slug)
