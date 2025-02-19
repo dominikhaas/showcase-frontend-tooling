@@ -2,7 +2,7 @@
 import type { ArticleData } from '../client/ArticleClient'
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
-import { RemoteMessageAndSampleCycleMaker2k } from '@/article/SampleCycleMaker2k.ts'
+import { RemoteMessageAndSampleCycleMaker2k } from './RemoteMessageAndSampleCycleMaker2k.ts'
 
 
 
