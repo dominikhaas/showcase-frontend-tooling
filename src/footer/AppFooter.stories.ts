@@ -1,6 +1,6 @@
 import AppFooter from './AppFooter.vue'
 
-import { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryFn } from '@storybook/vue3'
 
 export default {
   /* 👇 The title prop is optional.
