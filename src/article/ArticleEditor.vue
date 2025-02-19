@@ -2,8 +2,7 @@
 import type { ArticleData } from '../client/ArticleClient'
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
-import { logArticle } from '../client/SampleCycleMaker2k.ts'
-import { MessageObject } from './SampleCycleObject.ts'
+import { RemoteMessageAndSampleCycleMaker2k } from '@/article/SampleCycleMaker2k.ts'
 
 
 
@@ -21,7 +20,9 @@ const emits = defineEmits<{
 const { t } = useI18n()
 
 const article = ref<ArticleData>(JSON.parse(JSON.stringify(props.articleData)))
-logArticle(new MessageObject("test"));
+
+
+new RemoteMessageAndSampleCycleMaker2k("Log this in the backend").log();
 
 const cancel = () => {
   emits('cancel')
