@@ -18,7 +18,8 @@
     "build-storybook": "storybook build",
     "prepare": "husky",
     "arch:test": "depcruise src",
-    "arch:visualize": "depcruise src --output-type mermaid --collapse 2 --exclude \"src/main.ts|src/index.css|__tests__|node_modules|env.d.ts|@storybook|App.vue\"> dependency-graph.mmd"
+    "arch:visualize": "depcruise src --output-type mermaid --collapse 2 --exclude \"src/main.ts|src/index.css|__tests__|node_modules|env.d.ts|@storybook|App.vue\"> dependency-graph.mmd",
+    "storycap": "npm run build-storybook && npx storycap --serverCmd \"npx http-server storybook-static -p 9001\" -o storycap/actual &&  npx reg-cli storycap/actual storycap/expected storycap/diff -R ./storycap/report.html -J storycap/reg.json"
   },
   "dependencies": {
     "axios": "^0.27.2",
