@@ -3,6 +3,7 @@ import { ref } from 'vue'
 import ArticleClient, { ArticleData } from '../clientold/ArticleClient'
 import { useSessionStore } from '../user/sessionStore'
 import ArticleView from './ArticleView.vue'
+import { type Article, getArticle } from '@/client'
 
 const props = defineProps<{
   slug: string
@@ -14,7 +15,7 @@ const emits = defineEmits<{
 }>()
 
 const sessionStore = useSessionStore()
-const articleData = ref<ArticleData>({})
+const articleData = ref<Article>({})
 
 const editArticle = async () => {
   emits('edit', articleData.value.slug as string)
@@ -32,9 +33,8 @@ const cancel = () => {
 
 const initArticle = async (slug: string) => {
   //example load time
-  await new Promise((r) => setTimeout(r, 1000))
-
-  articleData.value = await ArticleClient.findArticleBySlug(slug).promise
+  const articleResponse = await getArticle({path: {slug: slug}});
+  articleData.value = articleResponse.data.article;
 }
 
 await initArticle(props.slug)

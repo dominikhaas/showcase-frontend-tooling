@@ -19,17 +19,22 @@
     "prepare": "husky",
     "arch:test": "depcruise src",
     "arch:visualize": "depcruise src --output-type mermaid --collapse 2 --exclude \"src/main.ts|src/index.css|__tests__|node_modules|env.d.ts|@storybook|App.vue\"> dependency-graph.mmd",
-    "storycap": "npm run build-storybook && npx storycap --serverCmd \"npx http-server storybook-static -p 9001\" -o storycap/actual &&  npx reg-cli storycap/actual storycap/expected storycap/diff -R ./storycap/report.html -J storycap/reg.json"
+    "storycap": "npm run build-storybook && npx storycap --serverCmd \"npx http-server storybook-static -p 9001\" -o storycap/actual &&  npx reg-cli storycap/actual storycap/expected storycap/diff -R ./storycap/report.html -J storycap/reg.json",
+    "openapi-ts": "openapi-ts"
   },
   "dependencies": {
+    "@hey-api/client-fetch": "^0.8.1",
+    "@vee-validate/zod": "^4.15.0",
     "axios": "^0.27.2",
     "pinia": "^2.3.1",
     "vue": "^3.5.13",
     "vue-i18n": "^10.0.5",
-    "vue-router": "^4.5.0"
+    "vue-router": "^4.5.0",
+    "zod": "^3.24.2"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.4",
+    "@hey-api/openapi-ts": "^0.64.4",
     "@intlify/unplugin-vue-i18n": "^6.0.2",
     "@playwright/test": "^1.49.1",
     "@storybook/addon-essentials": "^8.5.8",
