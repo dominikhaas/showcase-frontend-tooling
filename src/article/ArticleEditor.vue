@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import type { ArticleData } from '../client/ArticleClient'
+import type { ArticleData } from '../clientold/ArticleClient'
 import { useI18n } from 'vue-i18n'
 import { ref } from 'vue'
 import { RemoteMessageAndSampleCycleMaker2k } from './RemoteMessageAndSampleCycleMaker2k.ts'

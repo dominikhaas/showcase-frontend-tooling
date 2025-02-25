@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from '@testing-library/vue'
 import ArticleEditor from '../ArticleEditor.vue'
 import { expect, test } from 'vitest'
-import type { ArticleData } from '../../client/ArticleClient'
+import type { ArticleData } from '../../clientold/ArticleClient'
 
 test('Saving sends the edited article', async () => {
   const sampleArticleData: ArticleData = {

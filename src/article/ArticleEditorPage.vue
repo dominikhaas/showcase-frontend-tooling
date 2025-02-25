@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import ArticleEditorContainer from './ArticleEditorContainer.vue'
 import { useRoute, useRouter } from 'vue-router'
-import { type ArticleData } from '../client/ArticleClient'
+import { type ArticleData } from '../clientold/ArticleClient'
 
 const props = defineProps<{
   id?: string

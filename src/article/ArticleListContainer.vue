@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useSessionStore } from '../user/sessionStore'
 import { ref } from 'vue'
-import ArticleClient, { ArticleData } from '../client/ArticleClient'
+import ArticleClient, { ArticleData } from '../clientold/ArticleClient'
 import ArticleList from './ArticleList.vue'
 import { useRouter } from 'vue-router'
 

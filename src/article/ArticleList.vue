@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { ArticleData } from '../client/ArticleClient'
+import { ArticleData } from '../clientold/ArticleClient'
 
 const props = defineProps<{
   loggedIn: boolean

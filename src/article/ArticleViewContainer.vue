@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import ArticleClient, { ArticleData } from '../client/ArticleClient'
+import ArticleClient, { ArticleData } from '../clientold/ArticleClient'
 import { useSessionStore } from '../user/sessionStore'
 import ArticleView from './ArticleView.vue'
 

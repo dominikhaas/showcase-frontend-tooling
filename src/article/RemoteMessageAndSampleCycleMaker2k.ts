@@ -1,4 +1,4 @@
-import { logRemoteMessage } from '../client/SampleCycleMaker2k.ts'
+import { logRemoteMessage } from '../clientold/SampleCycleMaker2k.ts'
 
 export class RemoteMessageAndSampleCycleMaker2k {
   constructor(public message: string) {
