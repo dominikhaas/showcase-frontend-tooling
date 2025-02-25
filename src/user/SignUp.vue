@@ -1,40 +1,43 @@
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { zNewUser } from '../client/zod.gen.ts'
+import { toTypedSchema } from '@vee-validate/zod'
+import { useField, useForm } from 'vee-validate'
+import type { NewUser } from '../client/types.gen.ts'
 
 const props = defineProps<{
   errorText: string
 }>()
 
-const emits = defineEmits<{
-  (event: 'signUp', userName: string, email: string, password: string): void
-  (event: 'cancel'): void
+//setup validation with vee validate
+const validationSchema = toTypedSchema(zNewUser)
+const { handleSubmit, errors } = useForm({
+  validationSchema,
+})
+const { value: username } = useField('username')
+const { value: email } = useField('email')
+const { value: password } = useField('password')
+
+const emit = defineEmits<{
+  signUp: [newUser: NewUser]
+  cancel: []
 }>()
 
-const userName = ref('')
-const email = ref('')
-const password = ref('')
+const onSubmit = handleSubmit((values) => {
+  emit('signUp', values as NewUser)
+})
 
 const cancel = () => {
-  emits('cancel')
-}
-
-const signUp = async () => {
-  emits('signUp', userName.value, email.value, password.value)
+  emit('cancel')
 }
 </script>
 
 <template>
   <h2 class="main-heading">Sign up</h2>
-  <form>
+  <form @submit="onSubmit">
     <div class="input-section">
       <label for="user-name">Name</label>
-      <input
-        id="user-name"
-        v-model="userName"
-        name="user"
-        placeholder="Please enter your name"
-        type="text"
-      />
+      <input v-model="username" name="username" placeholder="Please enter your name" type="text" />
+      <span class="error">{{ errors.username }}</span>
     </div>
 
     <div class="input-section">
@@ -46,6 +49,7 @@ const signUp = async () => {
         placeholder="Please enter your e-mail address"
         type="email"
       />
+      <span class="error">{{ errors.email }}</span>
     </div>
 
     <div class="input-section">
@@ -57,13 +61,21 @@ const signUp = async () => {
         placeholder="Please enter your password"
         type="password"
       />
+      <span class="error">{{ errors.password }}</span>
     </div>
 
-    <p>{{ props.errorText }}</p>
+    <p class="error">{{ props.errorText }}</p>
 
     <div class="form-controls">
       <a href="#" @click.prevent="cancel">cancel</a>
-      <button data-test="do-sign-up" type="submit" @click.prevent="signUp">sign up</button>
+      <button>sign up</button>
     </div>
   </form>
 </template>
+
+<style>
+.error {
+  color: red;
+  margin: 1em 0;
+}
+</style>
