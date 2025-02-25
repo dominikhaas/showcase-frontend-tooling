@@ -1,0 +1,36 @@
+flowchart LR
+
+subgraph 0["src"]
+subgraph 1["article"]
+2[" "]
+end
+subgraph 3["client"]
+4[" "]
+end
+subgraph 5["error"]
+6[" "]
+end
+subgraph 7["footer"]
+8[" "]
+end
+subgraph 9["header"]
+A[" "]
+end
+subgraph B["i18n"]
+C[" "]
+end
+subgraph D["router"]
+E[" "]
+end
+subgraph F["user"]
+G[" "]
+end
+end
+2-->4
+2-->G
+4-->2
+A-->G
+E-->2
+E-->6
+E-->G
+G-->4
